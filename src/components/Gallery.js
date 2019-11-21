@@ -6,7 +6,6 @@ export const Gallery = (props) => {
         props.images.map((img) => <Image source={{ uri: img.uri }} style={style.imgBox} />)
     }
     </View>;
-
 }
 
 const style = StyleSheet.create({

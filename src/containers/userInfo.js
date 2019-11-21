@@ -18,15 +18,6 @@ const UserInfo = props => {
     }, [])
     const { picture: { thumbnail }, name: { first, last }, email } = props.userData;
     const galleryData = photos.length > 0 && photos.map((obj) => {
-        /**
-         * {
-         * uri,
-         * id,
-         * title,
-         * description
-         * }
-         */
-
         return {
             uri: obj.urls.full,
             id: obj.id,
