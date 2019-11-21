@@ -9,7 +9,7 @@ import {
 import { ListItem, SearchBar } from "react-native-elements";
 import { getUsers } from "../api/index";
 import { connect } from 'react-redux'
-import {userData} from "../actions/search"
+import {userData,setUserPressedData} from "../actions/search"
 
 class SearchUsers extends Component {
     constructor(props) {
@@ -95,6 +95,7 @@ class SearchUsers extends Component {
                             subtitle={item.email}
                             leftAvatar={{ source: { uri: item.picture.thumbnail } }}
                             containerStyle={{ borderBottomWidth: 0 }}
+                            onPress= {(_)=>this.props.setUserPressedData(item)}
                         />
                     )}
                     keyExtractor={item => item.email}
@@ -111,4 +112,4 @@ const mapStateToProps = (store) => ({
     data: store.data
 })
 
-export default connect(mapStateToProps, {userData})(SearchUsers);
+export default connect(mapStateToProps, {userData, setUserPressedData})(SearchUsers);

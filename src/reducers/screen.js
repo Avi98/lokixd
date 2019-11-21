@@ -7,8 +7,10 @@ const initialState = {
 }
 
 export function Screen(state = initialState, actions) {
-    switch (actions.types) {
-        case UPDATE_SCREEN_NAME: return { ...state, currentScreenName: actions.screen }
+    debugger
+    switch (actions.type) {
+        case UPDATE_SCREEN_NAME: 
+        return { ...state, currentScreenName: actions.screen, currentScreenPosition: actions.position }
         default: return state
     }
 }
