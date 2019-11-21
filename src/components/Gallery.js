@@ -32,5 +32,5 @@ const style = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'flex-start'
     },
-    imgBox: { width: 250, height: 250, padding: 15 }
+    imgBox: { width: 150, height: 150, padding: 15 }
 })
