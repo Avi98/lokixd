@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { ListItem, SearchBar } from "react-native-elements";
 import { getUsers } from "../api/index";
+import { connect } from 'react-redux'
+import {userData} from "../actions/search"
 
 class SearchUsers extends Component {
     constructor(props) {
@@ -30,6 +32,8 @@ class SearchUsers extends Component {
 
         getUsers()
             .then(users => {
+                
+                this.props.userData(users)
                 this.setState({
                     loading: false,
                     data: users
@@ -56,11 +60,12 @@ class SearchUsers extends Component {
     updateSearch = (search) => this.setState({ search }, this.filterSearchResult)
 
     filterSearchResult = () => {
-        const newSearchData = this.state.data.filter(obj=>obj.name.first.includes(this.state.search))
-        this.setState({data:newSearchData})
-    } 
+        const dataCpy = [...this.state.data]
+        const newSearchData = dataCpy.filter(obj => obj.name.first.includes(this.state.search))
+        this.setState({ data: this.state.search ? newSearchData : this.props.data })
+    }
     renderHeader = () => {
-        return <SearchBar placeholder="Type Here..." lightTheme round onChangeText={this.updateSearch} value={this.state.search}  />;
+        return <SearchBar placeholder="Type Here..." lightTheme round onChangeText={this.updateSearch} value={this.state.search} />;
     };
 
     renderFooter = () => {
@@ -102,4 +107,8 @@ class SearchUsers extends Component {
     }
 }
 
-export default SearchUsers;
+const mapStateToProps = (store) => ({
+    data: store.data
+})
+
+export default connect(mapStateToProps, {userData})(SearchUsers);

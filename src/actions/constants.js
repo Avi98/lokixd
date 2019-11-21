@@ -1,0 +1,1 @@
+export const STORE_SEARCH_DATA = 'STORE_SEARCH_DATA';
