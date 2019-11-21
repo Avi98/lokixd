@@ -61,7 +61,7 @@ class SearchUsers extends Component {
 
     filterSearchResult = () => {
         const dataCpy = [...this.state.data]
-        const newSearchData = dataCpy.filter(obj => obj.name.first.includes(this.state.search))
+        const newSearchData = dataCpy.filter(obj => obj.name.first.includes(this.state.search.toLowerCase()))
         this.setState({ data: this.state.search ? newSearchData : this.props.data })
     }
     renderHeader = () => {
