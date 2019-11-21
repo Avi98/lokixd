@@ -3,15 +3,10 @@ import { StyleSheet, View, Image, TouchableOpacity, ScrollView } from 'react-nat
 
 export const Gallery = (props) => {
     return <ScrollView contentContainerStyle={style.container}>
- 
         {
             props.images.map((img) =>
                 <TouchableOpacity
-                // onPress={() => onSelect(id)}
-                // style={[
-                //     styles.item,
-                //     { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-                // ]}
+                // onPress={() => onSelect(img)}
                 >
                     <Image source={{ uri: img.uri }} style={style.imgBox} />
 

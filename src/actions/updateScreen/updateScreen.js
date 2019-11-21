@@ -6,3 +6,4 @@ export function updateScreenPosition({ name, position }) {
         position,
     };
 }
+

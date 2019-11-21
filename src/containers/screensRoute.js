@@ -3,7 +3,7 @@ import Search from './flatlist';
 import UserInfo from './userInfo';
 import { connect } from 'react-redux';
 import { BackHandler } from 'react-native';
-import { updateScreenPosition } from '../actions/search';
+import { updateScreenPosition } from '../actions/updateScreen/updateScreen';
 
 const RenderScreen = (name) => {
     switch(name){

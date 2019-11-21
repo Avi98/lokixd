@@ -1,5 +1,5 @@
 import { STORE_SEARCH_DATA, SET_USER_PRESSED_DATA } from "../constants";
-import { updateScreenPosition } from "../updateScreen.js/updateScreenPosition";
+import { updateScreenPosition } from "../updateScreen/updateScreen";
 
 export function userData(data) {
     return {
