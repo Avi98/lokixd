@@ -53,9 +53,14 @@ class SearchUsers extends Component {
         );
     };
 
-    updateSearch = (search) => this.setState({ search })
+    updateSearch = (search) => this.setState({ search }, this.filterSearchResult)
+
+    filterSearchResult = () => {
+        const newSearchData = this.state.data.filter(obj=>obj.name.first.includes(this.state.search))
+        this.setState({data:newSearchData})
+    } 
     renderHeader = () => {
-        return <SearchBar placeholder="Type Here..." lightTheme round onChangeText={this.updateSearch} value={this.state.search} value={this.state.search} />;
+        return <SearchBar placeholder="Type Here..." lightTheme round onChangeText={this.updateSearch} value={this.state.search}  />;
     };
 
     renderFooter = () => {
