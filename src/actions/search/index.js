@@ -1,4 +1,5 @@
-import { STORE_SEARCH_DATA, SET_USER_PRESSED_DATA, UPDATE_SCREEN_NAME } from "../constants";
+import { STORE_SEARCH_DATA, SET_USER_PRESSED_DATA } from "../constants";
+import { updateScreenPosition } from "../updateScreen.js/updateScreenPosition";
 
 export function userData(data) {
     return {
@@ -7,13 +8,6 @@ export function userData(data) {
     }
 }
 
-export function updateScreenPosition({name, position}){
-    return {
-        type:UPDATE_SCREEN_NAME,
-        screen: name,
-        position,
-    }
-}
 export function setUserPressedData(data) {
     return (dispatch) => {
         dispatch(updateScreenPosition({name:'UserInfo', position:1}))
