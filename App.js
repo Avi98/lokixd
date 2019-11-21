@@ -1,15 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import FlatList from './src/containers/flatlist'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { store } from './src/reducers';
+import { black } from 'ansi-colors';
 
 
 export default function App() {
   return (
     <Provider store={store}>
-       <FlatList />
+      <View style={styles.container}>
+        <FlatList />
+      </View>
     </Provider>
 
 
@@ -18,9 +20,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   paddingTop: 20,
+   backgroundColor: '#0000001f'
   },
 });
