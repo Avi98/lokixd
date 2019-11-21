@@ -1,11 +1,26 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 export const Gallery = (props) => {
-    return <View style={style.container}>{
-        props.images.map((img) => <Image source={{ uri: img.uri }} style={style.imgBox} />)
-    }
-    </View>;
+    return <ScrollView contentContainerStyle={style.container}>
+ 
+        {
+            props.images.map((img) =>
+                <TouchableOpacity
+                // onPress={() => onSelect(id)}
+                // style={[
+                //     styles.item,
+                //     { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
+                // ]}
+                >
+                    <Image source={{ uri: img.uri }} style={style.imgBox} />
+
+                </TouchableOpacity>
+            )
+
+        }
+    </ScrollView>
+
 }
 
 const style = StyleSheet.create({
