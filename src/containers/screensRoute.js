@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import Search from './flatlist';
 import UserInfo from './userInfo';
+// import UserGallery from './UserGallery';
 import { connect } from 'react-redux';
 import { BackHandler } from 'react-native';
 import { updateScreenPosition } from '../actions/updateScreen/updateScreen';

@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import {  View } from 'react-native';
 import axios from 'axios';
 import { Gallery } from "../components/Gallery";
+import { updateScreenPosition, setToGallery } from "../actions/updateScreen/updateScreen";
 
 const UserInfo = props => {
     const [photos, setPhotos] = useState([])
-
     useEffect(() => {
         axios('https://api.unsplash.com/photos/', {
             headers: {
@@ -38,7 +38,7 @@ const UserInfo = props => {
                     containerStyle={{ borderBottomWidth: 0 }}
                 />
             </Card>
-            <Gallery images={galleryData.length > 0 ? galleryData : []} />
+            <Gallery images={galleryData.length > 0 ? galleryData : []} setToGallery={props.setToGallery} />
 
         </View>
     )
@@ -49,4 +49,4 @@ const UserInfo = props => {
 const mapStateToProps = (store) => ({
     userData: store.Search.userPressedData
 })
-export default connect(mapStateToProps, null)(UserInfo)
+export default connect(mapStateToProps, {setToGallery})(UserInfo)

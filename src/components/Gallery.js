@@ -6,7 +6,7 @@ export const Gallery = (props) => {
         {
             props.images.map((img) =>
                 <TouchableOpacity
-                // onPress={() => onSelect(img)}
+                onPress={() => props.setToGallery(img)}
                 >
                     <Image source={{ uri: img.uri }} style={style.imgBox} />
 
