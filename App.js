@@ -1,16 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import FlatList from './src/containers/flatlist'
 import { Provider } from 'react-redux'
 import { store } from './src/reducers';
-import { black } from 'ansi-colors';
-
+import ScreenRoutes from "./src/containers/screensRoute"
 
 export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        <FlatList />
+        <ScreenRoutes />
       </View>
     </Provider>
 
