@@ -2,25 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { Card, ListItem } from "react-native-elements";
 import { connect } from "react-redux";
-import { StyleSheet, View, Text } from 'react-native';
+import {  View } from 'react-native';
 import axios from 'axios';
-import { ImageGallery } from '@nlabs/react-native-image-gallery';
+import { Gallery } from "../components/Gallery";
 
-const Gallery = (props) => {
-    const { images } = props;
-    const imageUrls = images.map((img) => ({
-        url: img.uri,
-        id: img.id,
-        title: img.title,
-        description: img.description
-    })
-    );
-    return <ImageGallery images={imageUrls} />;
-
-}
 const UserInfo = props => {
     const [photos, setPhotos] = useState([])
-  
+
     useEffect(() => {
         axios('https://api.unsplash.com/photos/', {
             headers: {
@@ -29,7 +17,7 @@ const UserInfo = props => {
         }).then((res) => setPhotos(res.data))
     }, [])
     const { picture: { thumbnail }, name: { first, last }, email } = props.userData;
-    const galleryData = photos.length > 0 &&  photos.map((obj) => {
+    const galleryData = photos.length > 0 && photos.map((obj) => {
         /**
          * {
          * uri,
@@ -47,7 +35,6 @@ const UserInfo = props => {
         }
 
     })
-    debugger
     return (
         <View>
             <Card
@@ -60,7 +47,7 @@ const UserInfo = props => {
                     containerStyle={{ borderBottomWidth: 0 }}
                 />
             </Card>
-            <Gallery images={galleryData.length>0 ? galleryData : []} />
+            <Gallery images={galleryData.length > 0 ? galleryData : []} />
 
         </View>
     )
