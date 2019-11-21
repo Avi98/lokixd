@@ -1,21 +1,18 @@
 import React from 'react';
 import Search from './flatlist';
+import UserInfo from './userInfo';
 import { connect } from 'react-redux';
-import { StyleSheet, View , Text} from 'react-native';
 
 
-const Test = () => <View><Text>userInfo</Text></View>
-const UserG = () => <View><Text>UserG</Text></View>
 const RenderScreen = (name) => {
     switch(name){
         case 'Search': return Search ;
-        case 'UserInfo': return Test
-        case 'UserGallery': return UserG
+        case 'UserInfo': return UserInfo;
+        // case 'UserGallery': return UserGallery;
         default: return Search 
     }
 }
 const ScreenRoutes = (props) => {
-    debugger
     const Comp = RenderScreen(props.screen.currentScreenName)
     return (
         <Comp />

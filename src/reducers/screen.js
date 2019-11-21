@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export function Screen(state = initialState, actions) {
-    debugger
+
     switch (actions.type) {
         case UPDATE_SCREEN_NAME: 
         return { ...state, currentScreenName: actions.screen, currentScreenPosition: actions.position }
