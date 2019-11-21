@@ -6,13 +6,17 @@ export function userData(data) {
         data
     }
 }
+
+export function updateScreenPosition({name, position}){
+    return {
+        type:UPDATE_SCREEN_NAME,
+        screen: name,
+        position,
+    }
+}
 export function setUserPressedData(data) {
     return (dispatch) => {
-        dispatch({
-            type:UPDATE_SCREEN_NAME,
-            screen: 'UserInfo',
-            position:1,
-        })
+        dispatch(updateScreenPosition({name:'UserInfo', position:1}))
         dispatch({
             type: SET_USER_PRESSED_DATA,
             data
